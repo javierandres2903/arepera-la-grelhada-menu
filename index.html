@@ -1,0 +1,1612 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#21150e" />
+  <title>Arepera La Grelhada | Menú Digital</title>
+  <meta name="description" content="Menú digital de Arepera La Grelhada: arepas, empanadas, almuerzos y platos especiales." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+  :root {
+    --orange: #f47b20;
+    --orange-light: #ff9b38;
+    --amber: #ffbd45;
+    --text: #fff7eb;
+    --muted: #c7b7a5;
+    --border: rgba(255, 177, 71, 0.19);
+    --radius: 18px;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: #e9dfd3;
+    color: #352319;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  button {
+    font: inherit;
+    cursor: pointer;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+  }
+  a {
+    text-decoration: none;
+  }
+  .container {
+    width: min(100% - 32px, 1100px);
+    margin: auto;
+  }
+  .top-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    background: #19100af5;
+  }
+  .top-contact > a,
+  .top-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 36px;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.58);
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 600;
+    transition: 0.2s ease;
+  }
+  .top-contact > a:hover,
+  .top-social-link:hover {
+    border-color: var(--orange);
+    color: var(--amber);
+  }
+  .top-social-links {
+    display: flex;
+    gap: 8px;
+  }
+  .top-social-link {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+  .top-contact svg {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 auto;
+  }
+  .top-social-link svg {
+    width: 21px;
+    height: 21px;
+  }
+  @media (max-width: 600px) {
+    .top-contact {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      padding: 10px 12px;
+    }
+    .top-contact > a,
+    .top-social-link {
+      justify-content: center;
+      min-width: 0;
+      padding: 8px 6px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+    .top-social-links {
+      grid-column: 1 / -1;
+      justify-content: flex-start;
+      justify-self: center;
+    }
+  }
+  .business-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 9px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.45);
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .business-status::before {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #9f8b78;
+    content: "";
+  }
+  .business-status.is-open {
+    color: #a7e8a1;
+    border-color: rgba(167, 232, 161, 0.45);
+  }
+  .business-status.is-open::before {
+    background: #68d36a;
+  }
+  .business-status.is-closed {
+    color: #ffc078;
+    border-color: rgba(255, 192, 120, 0.45);
+  }
+  .business-status.is-closed::before {
+    background: #f47b20;
+  }
+  .category-navigation {
+    position: relative;
+    background: #19100af5;
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .category-list {
+    display: flex;
+    gap: 10px;
+    padding: 14px 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .category-list::-webkit-scrollbar {
+    display: none;
+  }
+  .category-btn {
+    flex-shrink: 0;
+    padding: 11px 18px;
+    color: var(--muted);
+    background: #ffffff0b;
+    border: 1px solid #ffffff12;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: 0.2s ease;
+  }
+  .category-btn:hover {
+    color: white;
+    border-color: var(--orange);
+  }
+  .category-btn.active {
+    background: var(--orange);
+    color: #21150e;
+    border-color: var(--orange);
+  }
+  .footer {
+    padding: 45px 20px 30px;
+    text-align: center;
+    background: #0c0805d9;
+    border-top: 1px solid var(--border);
+  }
+  .footer-brand {
+    font: 600 24px "Oswald", sans-serif;
+    text-transform: uppercase;
+    color: var(--orange-light);
+  }
+  .footer p {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .social-link {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: #ffffff0a;
+    color: var(--amber);
+    font-size: 17px;
+    transition: 0.2s ease;
+  }
+  .social-link:hover {
+    background: var(--orange);
+    color: #21150e;
+  }
+  .social-link svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+  .footer-bottom {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ffffff0f;
+    color: #806e5d;
+    font-size: 11px;
+  }
+  .owner-access {
+    margin-top: 18px;
+    padding: 9px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .owner-access:hover {
+    border-color: var(--orange);
+    color: var(--text);
+  }
+  .owner-dialog {
+    width: min(92vw, 560px);
+    max-height: 88vh;
+    margin: auto;
+    padding: 24px;
+    overflow-y: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: #21150e;
+    color: var(--text);
+    box-shadow: 0 24px 80px #000b;
+  }
+  .owner-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(5px);
+  }
+  .owner-dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 18px;
+  }
+  .owner-dialog-header h2 {
+    font: 600 26px "Oswald", sans-serif;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  .owner-close {
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text);
+    font-size: 22px;
+  }
+  .owner-form, .owner-settings {
+    display: grid;
+    gap: 14px;
+  }
+  .owner-form label, .owner-settings label {
+    display: grid;
+    gap: 6px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .owner-dialog input {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #120c08;
+    color: var(--text);
+    font: inherit;
+  }
+  .status-options {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .status-options legend {
+    margin-bottom: 8px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .status-choice {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 46px;
+    padding: 11px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #120c08;
+    color: var(--text);
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .owner-settings .status-choice {
+    display: flex;
+    gap: 0;
+    color: var(--text);
+    font-size: 14px;
+  }
+  .status-choice input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    opacity: 0;
+  }
+  .status-choice:focus-within {
+    outline: 2px solid var(--amber);
+    outline-offset: 2px;
+  }
+  .status-choice.is-selected.status-open {
+    border-color: #35c982;
+    background: #123b2b;
+    color: #8ff0bd;
+  }
+  .status-choice.is-selected.status-closed {
+    border-color: #ef5c55;
+    background: #451d1c;
+    color: #ffaaa4;
+  }
+  .owner-primary, .owner-secondary {
+    padding: 11px 16px;
+    border: 1px solid var(--orange);
+    border-radius: 10px;
+    background: var(--orange);
+    color: #21150e;
+    font-weight: 700;
+  }
+  .owner-secondary {
+    background: transparent;
+    color: var(--orange-light);
+  }
+  .owner-primary:disabled, .owner-secondary:disabled {
+    cursor: wait;
+    opacity: 0.65;
+  }
+  .owner-message {
+    min-height: 1.4em;
+    color: var(--amber);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .owner-message.error {
+    color: #ff9a8b;
+  }
+  .owner-setup {
+    margin-bottom: 16px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .owner-setup a {
+    color: var(--orange-light);
+    text-decoration: underline;
+  }
+  .owner-panel[hidden], .owner-login[hidden], .owner-setup[hidden] {
+    display: none;
+  }
+  .owner-panel h3 {
+    margin: 20px 0 10px;
+    font: 500 20px "Oswald", sans-serif;
+  }
+  .owner-price-list {
+    display: grid;
+    gap: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+  .owner-price-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 120px;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid #ffffff12;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .back-to-top {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 20;
+    width: 46px;
+    height: 46px;
+    border: 1px solid #ffbd4559;
+    border-radius: 50%;
+    background: var(--orange);
+    color: #21150e;
+    font-size: 22px;
+    font-weight: 700;
+    box-shadow: 0 5px 20px #0005;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+  }
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  button:focus-visible, a:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 4px;
+  }
+  @media (min-width: 900px) {
+    .category-list {
+      justify-content: center;
+    }
+  }
+  .top-contact {
+    background: #39251a;
+  }
+  .top-contact > a,
+  .top-social-link {
+    border-color: #ffffff20;
+    background: #21150ee8;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+  .top-contact > a:hover,
+  .top-social-link:hover {
+    transform: translateY(-1px);
+    border-color: #e7b66f;
+    background: #51341f;
+    color: #fff7eb;
+  }
+  .category-navigation {
+    position: relative;
+    background: #24170ff5;
+    box-shadow: 0 3px 12px #160c0866;
+  }
+  .category-navigation .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 10px 0;
+  }
+  .business-status {
+    flex-shrink: 0;
+    margin: 0;
+    padding: 7px 11px;
+    border: 1px solid #e7b66f50;
+    border-radius: 999px;
+    background: #120c08a8;
+    color: #f0d7b4;
+    font-size: 11px;
+    letter-spacing: 0.7px;
+  }
+  .category-list {
+    gap: 7px;
+    padding: 0;
+  }
+  .category-btn {
+    padding: 9px 14px;
+    border: 1px solid #e7b66f38;
+    border-radius: 999px;
+    background: #ffffff0a;
+    color: #ead9c5;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+  .category-btn.active {
+    border-color: #b6531d;
+    background: linear-gradient(135deg, #c8662a, #a8481b);
+    color: #fffaf2;
+    box-shadow: 0 3px 10px #7f351d55;
+  }
+  .category-btn:hover {
+    border-color: #e7b66f;
+    color: #fffaf2;
+    transform: translateY(-1px);
+  }
+  .digital-menu {
+    width: min(100% - 40px, 1080px);
+    margin: 30px auto 48px;
+    color: #352319;
+  }
+  .menu-page {
+    margin: 0 0 30px;
+    padding: clamp(22px, 4vw, 44px);
+    border: 1px solid #d5c1a8;
+    border-top: 4px solid #b6531d;
+    border-radius: 14px;
+    background:
+      linear-gradient(145deg, #fffaf273, #fff8ed5c),
+      url("menu-desayunos-fondo.png") center / cover no-repeat;
+    box-shadow: 0 16px 42px #39251a26, inset 0 1px #fff9;
+  }
+  .menu-page[hidden] {
+    display: none;
+  }
+  .lunch-page {
+    background:
+      linear-gradient(145deg, #fffaf273, #fff8ed5c),
+      url("menu-almuerzos-fondo.jpe") center / cover no-repeat;
+  }
+  .menu-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 18px;
+    border: 1px solid #8a5a36;
+    border-radius: 14px;
+    background: linear-gradient(115deg, #382319, #57351f 66%, #70411f);
+    box-shadow: inset 0 0 0 1px #e7b66f55, 0 8px 22px #39251a30;
+  }
+  .menu-brand img {
+    width: 76px;
+    height: 76px;
+    flex: 0 0 76px;
+    padding: 4px;
+    border: 2px solid #e7b66f;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #fffaf2;
+    box-shadow: 0 0 0 4px #e7b66f35, 0 5px 12px #150d082e;
+  }
+  .menu-brand h1 {
+    color: #fff7eb;
+    font: 700 28px / 1.05 Georgia, "Times New Roman", serif;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 6px #160c08a8;
+  }
+  .menu-brand p {
+    margin-top: 6px;
+    color: #edc994;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .page-title {
+    width: max-content;
+    margin: 16px auto 22px;
+    padding: 8px 18px;
+    border: 1px solid #dfc7a9;
+    border-radius: 999px;
+    background: linear-gradient(110deg, #fff8ed, #f8ead8);
+    color: #8b4b26;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.7px;
+    text-align: center;
+    text-transform: uppercase;
+    box-shadow: inset 0 1px #fff;
+  }
+  .page-columns,
+  .lunch-grid {
+    display: grid;
+    align-items: start;
+    gap: 16px;
+  }
+  .page-columns {
+    grid-template-columns: 1fr 1fr;
+  }
+  .page-column {
+    min-width: 0;
+  }
+  .digital-menu .menu-section {
+    margin: 0 0 18px;
+    padding: 16px;
+    border: 1px solid #cdb596;
+    border-radius: 12px;
+    background: #fffaf2e8;
+    box-shadow: 0 6px 16px #5030181c, inset 0 1px #fff;
+    backdrop-filter: blur(2px);
+  }
+  .digital-menu .menu-section.hidden {
+    display: none;
+  }
+  .digital-menu .menu-section h2 {
+    margin: 0 0 13px;
+    padding: 10px 13px;
+    border: 1px solid #ecd8bf;
+    border-left: 4px solid #b6531d;
+    border-radius: 0 9px 9px 0;
+    background: #fffaf2;
+    color: #88451f;
+    font: 700 17px / 1.15 Georgia, "Times New Roman", serif;
+  }
+  .menu-item {
+    display: grid;
+    width: 100%;
+    min-height: 37px;
+    grid-template-columns: minmax(0, 1fr) 1.12in;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    padding: 8px 11px;
+    border: 1px solid #e6d5c1;
+    border-radius: 7px;
+    background: #fffdf9;
+    box-shadow: 0 2px 5px #3823190e;
+    color: #352319;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  .menu-item:hover {
+    border-color: #cdae88;
+    background: #fffaf2;
+    box-shadow: 0 3px 8px #38231918;
+  }
+  .menu-item:focus-visible {
+    outline: 2px solid #b6531d;
+    outline-offset: 2px;
+  }
+  .item-name {
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+  .price-entry {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+    color: #594534;
+    font-size: 9px;
+    white-space: nowrap;
+  }
+  .menu-item-price {
+    display: inline-block;
+    min-width: 78px;
+    padding: 7px 8px;
+    border: 1px solid #cdae88;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: inset 0 1px 3px #5534140c;
+    text-align: right;
+  }
+  .contour-groups {
+    display: grid;
+    grid-template-columns: 1.2fr 0.9fr;
+    align-items: start;
+    gap: 12px;
+  }
+  .contour-group {
+    padding: 12px;
+    border: 1px solid #e3d1ba;
+    border-radius: 9px;
+    background: #fffaf2d9;
+  }
+  .contour-group h3 {
+    margin: 0 0 7px;
+    color: #8b4b26;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+  .contour-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px 9px;
+    margin: 7px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .contour-grid--cold {
+    grid-template-columns: 1fr;
+  }
+  .contour-grid li {
+    position: relative;
+    padding: 6px 8px 6px 17px;
+    border: 1px solid #e6d5c1;
+    border-radius: 6px;
+    background: #fffdf9;
+    box-shadow: 0 1px 3px #3823190d;
+    color: #352319;
+    font-size: 10px;
+    line-height: 1.25;
+  }
+  .contour-grid li::before {
+    position: absolute;
+    top: 50%;
+    left: 7px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #c16a31;
+    content: "";
+    transform: translateY(-50%);
+  }
+  .empanada-group + .empanada-group {
+    margin-top: 10px;
+  }
+  .empanada-group .menu-item {
+    margin-bottom: 7px;
+  }
+  .lunch-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+  .digital-menu .lunch-panel,
+  .digital-menu .lunch-contours {
+    background: #fffaf2b8;
+  }
+  .lunch-contours {
+    margin-top: 12px !important;
+  }
+  .lunch-contours .contour-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .section-note {
+    margin: 8px 0 7px;
+    color: #493627;
+    font-size: 9px;
+    line-height: 1.4;
+    text-shadow: 0 1px 2px #fffaf2;
+  }
+  .section-note strong {
+    display: inline-block;
+    padding: 3px 8px;
+    border: 1px solid #e9d5bd;
+    border-radius: 999px;
+    background: #fffaf2eb;
+    color: #8b4b26;
+    font-size: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .note-box {
+    margin-top: 10px;
+    padding: 9px 11px;
+    border: 1px solid #e4c59f;
+    border-left: 4px solid #b6531d;
+    border-radius: 0 9px 9px 0;
+    background: linear-gradient(110deg, #fff0dc, #fff9ef);
+    color: #756456;
+    font-size: 10px;
+    line-height: 1.45;
+  }
+  .page-footer {
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px solid #e6d4bd;
+    color: #756456;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: center;
+  }
+  @media (max-width: 760px) {
+    .category-navigation .container {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      width: 100%;
+      gap: 8px;
+      padding: 10px 12px;
+    }
+    .business-status {
+      width: max-content;
+      margin: 0;
+      justify-self: center;
+    }
+    .category-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      overflow: visible;
+      padding: 0;
+    }
+    .category-btn {
+      width: 100%;
+      min-height: 34px;
+      padding: 7px 5px;
+      font-size: 10px;
+    }
+    .digital-menu {
+      width: calc(100% - 24px);
+      margin: 16px auto 32px;
+    }
+    .menu-page {
+      margin-bottom: 18px;
+      padding: 14px;
+      border-radius: 11px;
+    }
+    .page-columns,
+    .lunch-grid,
+    .contour-groups {
+      grid-template-columns: 1fr;
+    }
+    .contour-grid--cold {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .lunch-contours .contour-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .menu-brand {
+      justify-content: center;
+      gap: 13px;
+      padding: 13px 10px;
+    }
+    .menu-brand img {
+      width: 54px;
+      height: 54px;
+      flex-basis: 54px;
+    }
+    .menu-brand h1 {
+      font-size: clamp(19px, 5.3vw, 23px);
+    }
+    .menu-brand p {
+      max-width: 195px;
+      font-size: 8px;
+      letter-spacing: 1px;
+      line-height: 1.45;
+    }
+    .digital-menu .menu-section {
+      padding: 12px;
+      margin-bottom: 14px;
+    }
+    .digital-menu .menu-section h2 {
+      font-size: 16px;
+    }
+    .menu-item {
+      grid-template-columns: minmax(0, 1fr) 102px;
+      gap: 6px;
+      padding: 7px 8px;
+    }
+    .menu-item-price {
+      min-width: 62px;
+    }
+    .page-title {
+      margin: 13px auto 17px;
+      letter-spacing: 1.3px;
+    }
+  }
+  </style>
+</head>
+<body>
+  <nav class="top-contact" aria-label="Ubicación, contacto y redes sociales">
+    <a href="https://maps.app.goo.gl/gfLpb3XgPVkGNTxR9?g_st=iwb" target="_blank" rel="noopener noreferrer">
+      📍 Ubicación
+    </a>
+    <a href="https://wa.me/584124924059" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp al 0412 4924059">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M20.52 3.48A11.82 11.82 0 0 0 12.08 0C5.48 0 .11 5.37.1 11.98c0 2.11.55 4.17 1.6 5.99L0 24l6.2-1.63a11.93 11.93 0 0 0 5.87 1.49h.01c6.6 0 11.97-5.37 11.98-11.98a11.9 11.9 0 0 0-3.54-8.4ZM12.08 21.8h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.68.97.98-3.59-.23-.37a9.87 9.87 0 0 1-1.52-5.24c0-5.44 4.43-9.87 9.88-9.87a9.8 9.8 0 0 1 6.98 2.9 9.8 9.8 0 0 1 2.89 6.99c0 5.44-4.43 9.87-9.89 9.87Zm5.42-7.4c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.78.97-.96 1.17-.18.2-.35.23-.65.08-.3-.15-1.28-.47-2.44-1.5-.9-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.53.15-.17.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.53.08-.8.38-.27.3-1.05 1.02-1.05 2.49s1.08 2.89 1.23 3.09c.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.37.2 1.88.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35Z"/>
+      </svg>
+      0412 4924059
+    </a>
+    <div class="top-social-links" aria-label="Síguenos en redes">
+      <a class="top-social-link" href="https://www.instagram.com/areperalagrelhada" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
+        </svg>
+      </a>
+      <a class="top-social-link" href="https://www.tiktok.com/@areperalagrelhada" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.32V2h-4.1v13.67a2.9 2.9 0 0 1-2.9 2.74 2.9 2.9 0 0 1-2.9-2.9 2.9 2.9 0 0 1 2.9-2.9c.3 0 .59.05.87.14V8.57a7.03 7.03 0 0 0-.87-.06A7 7 0 0 0 1.8 15.5a7 7 0 0 0 7.02 7 7 7 0 0 0 7.01-7V8.56a8.86 8.86 0 0 0 5.18 1.67V6.14a4.86 4.86 0 0 1-1.42-.22Z"/>
+        </svg>
+      </a>
+    </div>
+  </nav>
+  <nav class="category-navigation" aria-label="Categorías del menú">
+    <div class="container">
+      <div class="business-status" id="businessStatus" aria-live="polite">
+        Horario por definir
+      </div>
+      <div class="category-list">
+        <button class="category-btn active" data-category="all" aria-pressed="true">
+          ✦ Todo el menú
+        </button>
+        <button class="category-btn" data-category="arepas" aria-pressed="false">
+          🫓 Arepas
+        </button>
+        <button class="category-btn" data-category="empanadas" aria-pressed="false">
+          🥟 Empanadas
+        </button>
+        <button class="category-btn" data-category="almuerzos" aria-pressed="false">
+          🍽️ Almuerzos
+        </button>
+        <button class="category-btn" data-category="contornos" aria-pressed="false">
+          🥗 Contornos
+        </button>
+        <button class="category-btn" data-category="especiales" aria-pressed="false">
+          🔥 Especiales
+        </button>
+      </div>
+    </div>
+  </nav>
+  <main class="digital-menu" id="menu-container">
+  </main>
+  <footer class="footer">
+    <div class="footer-brand">
+      Arepera La Grelhada
+    </div>
+    <p>
+      Arepas artesanales a la parrilla.
+      <br />
+      Sabor venezolano, pasión por el fuego.
+    </p>
+    <div class="footer-social">
+      <a
+        href="https://www.instagram.com/areperalagrelhada"
+        class="social-link"
+        aria-label="Instagram"
+        target="_blank"
+        rel="noopener noreferrer"
+        >
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
+        </svg>
+      </a>
+      <a
+        href="https://www.tiktok.com/@areperalagrelhada"
+        class="social-link"
+        aria-label="TikTok"
+        target="_blank"
+        rel="noopener noreferrer"
+        >
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.32V2h-4.1v13.67a2.9 2.9 0 0 1-2.9 2.74 2.9 2.9 0 0 1-2.9-2.9 2.9 2.9 0 0 1 2.9-2.9c.3 0 .59.05.87.14V8.57a7.03 7.03 0 0 0-.87-.06A7 7 0 0 0 1.8 15.5a7 7 0 0 0 7.02 7 7 7 0 0 0 7.01-7V8.56a8.86 8.86 0 0 0 5.18 1.67V6.14a4.86 4.86 0 0 1-1.42-.22Z"/>
+        </svg>
+      </a>
+      <a
+        href="https://wa.me/584124924059"
+        class="social-link"
+        aria-label="WhatsApp"
+        target="_blank"
+        rel="noopener noreferrer"
+        >
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M20.52 3.48A11.82 11.82 0 0 0 12.08 0C5.48 0 .11 5.37.1 11.98c0 2.11.55 4.17 1.6 5.99L0 24l6.2-1.63a11.93 11.93 0 0 0 5.87 1.49h.01c6.6 0 11.97-5.37 11.98-11.98a11.9 11.9 0 0 0-3.54-8.4ZM12.08 21.8h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.68.97.98-3.59-.23-.37a9.87 9.87 0 0 1-1.52-5.24c0-5.44 4.43-9.87 9.88-9.87a9.8 9.8 0 0 1 6.98 2.9 9.8 9.8 0 0 1 2.89 6.99c0 5.44-4.43 9.87-9.89 9.87Zm5.42-7.4c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.78.97-.96 1.17-.18.2-.35.23-.65.08-.3-.15-1.28-.47-2.44-1.5-.9-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.53.15-.17.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.53.08-.8.38-.27.3-1.05 1.02-1.05 2.49s1.08 2.89 1.23 3.09c.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.37.2 1.88.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35Z"/>
+        </svg>
+      </a>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Arepera La Grelhada. Todos los derechos reservados.
+    </div>
+    <button class="owner-access" id="openOwnerPanel" type="button">
+      Acceso del dueño
+    </button>
+  </footer>
+  <dialog class="owner-dialog" id="ownerDialog" aria-labelledby="ownerDialogTitle">
+    <div class="owner-dialog-header">
+      <h2 id="ownerDialogTitle">Panel del dueño</h2>
+      <button class="owner-close" id="closeOwnerDialog" type="button" aria-label="Cerrar">
+        ×
+      </button>
+    </div>
+    <p class="owner-setup" id="supabaseSetupNote" hidden>
+      Falta configurar Supabase para habilitar el acceso seguro y guardar cambios para todos los clientes.
+      Sigue la guía de <a href="supabase_setup.sql" target="_blank" rel="noopener noreferrer">configuración de Supabase</a>.
+    </p>
+    <section class="owner-login" id="ownerLoginView">
+      <form class="owner-form" id="ownerLoginForm">
+        <label for="ownerEmail">
+          Correo del dueño
+          <input id="ownerEmail" name="email" type="email" autocomplete="username" required />
+        </label>
+        <label for="ownerPassword">
+          Contraseña
+          <input id="ownerPassword" name="password" type="password" autocomplete="current-password" required />
+        </label>
+        <button class="owner-primary" id="ownerLoginButton" type="submit">
+          Iniciar sesión
+        </button>
+      </form>
+    </section>
+    <section class="owner-panel" id="ownerPanelView" hidden>
+      <p id="ownerWelcome"></p>
+      <form class="owner-settings" id="ownerChangesForm">
+        <section>
+          <h3>Estado del local</h3>
+          <fieldset class="status-options">
+            <legend>El estado que verán los clientes</legend>
+            <label class="status-choice status-open" for="businessStatusOpen">
+              <input id="businessStatusOpen" name="businessStatus" type="radio" value="true" required />
+              <span>Abierto</span>
+            </label>
+            <label class="status-choice status-closed" for="businessStatusClosed">
+              <input id="businessStatusClosed" name="businessStatus" type="radio" value="false" required />
+              <span>Cerrado</span>
+            </label>
+          </fieldset>
+        </section>
+        <section>
+          <h3>Precios del menú</h3>
+          <div class="owner-price-list" id="ownerPriceList"></div>
+        </section>
+        <button class="owner-primary" id="saveChangesButton" type="submit">
+          Guardar cambios
+        </button>
+      </form>
+      <button class="owner-secondary" id="ownerLogoutButton" type="button">
+        Cerrar sesión
+      </button>
+    </section>
+    <p class="owner-message" id="ownerMessage" role="status" aria-live="polite"></p>
+  </dialog>
+  <button class="back-to-top" id="backToTop" aria-label="Volver al inicio">
+    ↑
+  </button>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const menuCategories = [
+      {
+        id: "arepas",
+        title: "Arepas y desayunos",
+        items: [
+          { name: "2 contorno", label: "Arepa de 2 contornos", price: 0 },
+          { name: "3 contorno", label: "Arepa de 3 contornos", price: 0 },
+          { name: "Contornos especiales", label: "Arepa con contornos especiales", price: 0 },
+          { name: "Desayuno criollo", price: 0 },
+          { name: "Bandeja grelhada", price: 0 },
+          { name: "Arepa viuda", price: 0 },
+          { name: "Envase de llevar", price: 0 }
+        ]
+      },
+      {
+        id: "empanadas",
+        title: "Empanadas",
+        items: [
+          {
+            name: "Empanadas básicas",
+            price: 0,
+            options: [
+              "Pollo", "Molida", "Jamón con queso", "Caraota con queso",
+              "Tajada con queso", "Queso guayanés", "Salchicha guisada"
+            ]
+          },
+          {
+            name: "Empanadas especiales",
+            price: 0,
+            options: [
+              "Mechada", "Pabellón", "Mechada con amarillo",
+              "Mechada con guayanés", "Cordon bleu", "Chorizo con guayanés",
+              "Pork belly", "Pernil", "Asado negro"
+            ]
+          },
+          { name: "Empanadas de mariscos", price: 0, options: ["Camarones"] }
+        ]
+      },
+      {
+        id: "almuerzos",
+        title: "Almuerzos",
+        items: [
+          { name: "Milanesa de pollo a la plancha", label: "Milanesa de pollo", price: 0 },
+          { name: "Chuleta ahumada", price: 0 },
+          { name: "Mechada", price: 0 },
+          { name: "Bistec de solomo", price: 0 },
+          { name: "Pernil", price: 0 },
+          { name: "Asado negro", price: 0 }
+        ]
+      },
+      {
+        id: "contornos",
+        title: "Contornos",
+        items: [],
+        options: [
+          "Arroz", "Ensalada mixta", "Ensalada rallada",
+          "Caraotas", "Tajadas", "Arepitas fritas"
+        ]
+      },
+      {
+        id: "especiales",
+        title: "Especiales",
+        items: [
+          { name: "Sopa de costilla", price: 0 },
+          { name: "Carne en vara", label: "Carne en vara · 100 gramos", price: 0 },
+          { name: "Pork belly", label: "Pork belly · 100 gramos", price: 0 },
+          { name: "Pollo asado", price: 0 }
+        ]
+      }
+    ];
+
+    const arepaFillings = {
+      calientes: [
+        "Mechada", "Pollo", "Molida", "Pernil", "Asado negro", "Lengua",
+        "Pork belly", "Perico", "Caraota", "Salchicha guisada", "Chorizo",
+        "Chuleta ahumada"
+      ],
+      frios: [
+        "Queso guayanés", "Queso telita", "Queso crineja", "Queso blanco",
+        "Queso amarillo", "Huevos de codorniz",
+        "Salchicha con salsa rosada", "Jamón de pierna"
+      ]
+    };
+
+    const SUPABASE_URL = "https://xzmyrvzxonwvinoqsyti.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_artjRPmNGydYTTeH9KamDA_cjVo178y";
+    const supabaseSdkAvailable = Boolean(
+      window.supabase && window.supabase.createClient
+    );
+    const supabaseConfigured =
+      !SUPABASE_URL.startsWith("PEGA_AQUI_") &&
+      !SUPABASE_ANON_KEY.startsWith("PEGA_AQUI_") &&
+      supabaseSdkAvailable;
+    const supabaseClient = supabaseConfigured
+      ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+      : null;
+
+    const menuContainer = document.getElementById("menu-container");
+    const categoryButtons = document.querySelectorAll(".category-btn");
+    const ownerDialog = document.getElementById("ownerDialog");
+    const ownerLoginView = document.getElementById("ownerLoginView");
+    const ownerPanelView = document.getElementById("ownerPanelView");
+    const ownerMessage = document.getElementById("ownerMessage");
+    const ownerSetupNote = document.getElementById("supabaseSetupNote");
+    const ownerPriceList = document.getElementById("ownerPriceList");
+    const businessStatusBadge = document.getElementById("businessStatus");
+    const businessStatusChoices = document.querySelectorAll('input[name="businessStatus"]');
+    const menuPrices = new Map();
+    let businessIsOpen = null;
+
+    function formatPrice(value) {
+      return `${formatMenuPrice(value)} Bs`;
+    }
+
+    function formatMenuPrice(value) {
+      return Number(value).toLocaleString("es-VE", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2
+      });
+    }
+
+    function showOwnerMessage(message, isError = false) {
+      ownerMessage.textContent = message;
+      ownerMessage.classList.toggle("error", isError);
+    }
+
+    function setBusinessStatusChoice(isOpen) {
+      const selectedValue = isOpen === null ? "" : String(isOpen);
+      businessStatusChoices.forEach((choice) => {
+        choice.checked = choice.value === selectedValue;
+        choice.closest(".status-choice").classList.toggle("is-selected", choice.checked);
+      });
+    }
+
+    businessStatusChoices.forEach((choice) => {
+      choice.addEventListener("change", () => {
+        setBusinessStatusChoice(choice.value === "true");
+      });
+    });
+
+    function updatePublicStatus(isOpen, unavailable = false) {
+      businessIsOpen = isOpen;
+      businessStatusBadge.classList.remove("is-open", "is-closed");
+
+      if (unavailable) {
+        businessStatusBadge.textContent = "Horario no disponible";
+      } else if (isOpen === true) {
+        businessStatusBadge.textContent = "Abierto";
+        businessStatusBadge.classList.add("is-open");
+      } else if (isOpen === false) {
+        businessStatusBadge.textContent = "Cerrado";
+        businessStatusBadge.classList.add("is-closed");
+      } else {
+        businessStatusBadge.textContent = "Horario por definir";
+      }
+
+      setBusinessStatusChoice(isOpen);
+    }
+
+    function renderMenu() {
+      const categories = new Map(menuCategories.map((category) => [category.id, category]));
+      const menuItem = (item) => {
+        const price = menuPrices.get(item.name) ?? Number(item.price);
+        const label = item.label || item.name;
+        const displayPrice = formatMenuPrice(price);
+        return `
+          <button
+            class="menu-item"
+            type="button"
+            data-product-card="${item.name}"
+            data-label="${label}"
+            data-price="${price}"
+            aria-label="${label}, ${formatPrice(price)}. Ver detalle"
+          >
+            <span class="item-name">${label}</span>
+            <span class="price-entry"><span>Bs.</span><span class="menu-item-price">${displayPrice}</span></span>
+          </button>
+        `;
+      };
+      const contourList = (items, className = "contour-grid") => `
+        <ul class="${className}">
+          ${items.map((item) => `<li>${item}</li>`).join("")}
+        </ul>
+      `;
+      const brandHeader = (page) => `
+        <header class="menu-brand">
+          <img src="logo-arepera.png" alt="Logo de Arepera La Grelhada" />
+          <div>
+            <h1>Arepera<br />La Grelhada</h1>
+            <p>Sabor venezolano hecho con cariño</p>
+          </div>
+        </header>
+        <p class="page-title">Nuestro menú · ${page} de 2</p>
+      `;
+
+      menuContainer.innerHTML = `
+        <article class="menu-page">
+          ${brandHeader(1)}
+          <div class="page-columns">
+            <div class="page-column">
+              <section class="menu-section" data-section="arepas">
+                <h2>${categories.get("arepas").title}</h2>
+                ${categories.get("arepas").items.map(menuItem).join("")}
+              </section>
+              <section class="menu-section" data-section="arepas">
+                <h2>Contornos para arepas</h2>
+                <div class="contour-groups">
+                  <div class="contour-group">
+                    <h3>Calientes</h3>
+                    ${contourList(arepaFillings.calientes)}
+                  </div>
+                  <div class="contour-group">
+                    <h3>Fríos</h3>
+                    ${contourList(arepaFillings.frios, "contour-grid contour-grid--cold")}
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="page-column">
+              <section class="menu-section" data-section="empanadas">
+                <h2>${categories.get("empanadas").title}</h2>
+                ${categories.get("empanadas").items.map((item) => `
+                  <div class="empanada-group">
+                    ${menuItem(item)}
+                    ${contourList(item.options)}
+                  </div>
+                `).join("")}
+              </section>
+            </div>
+          </div>
+          <footer class="page-footer">Arepera La Grelhada · Hecho para disfrutar</footer>
+        </article>
+        <article class="menu-page lunch-page">
+          ${brandHeader(2)}
+          <div class="lunch-grid">
+            <section class="menu-section lunch-panel" data-section="almuerzos">
+              <h2>${categories.get("almuerzos").title}</h2>
+              <p class="section-note"><strong>Incluyen 3 contornos a elección</strong></p>
+              ${categories.get("almuerzos").items.map(menuItem).join("")}
+            </section>
+            <section class="menu-section lunch-panel" data-section="especiales">
+              <h2>${categories.get("especiales").title}</h2>
+              ${categories.get("especiales").items.map(menuItem).join("")}
+              <p class="section-note">El pollo asado viene acompañado con yuca o arepita frita, y ensalada mixta o rallada.</p>
+            </section>
+          </div>
+          <section class="menu-section lunch-contours" data-section="contornos">
+            <h2>${categories.get("contornos").title}</h2>
+            ${contourList(categories.get("contornos").options)}
+          </section>
+          <aside class="note-box">
+            Los recuadros junto a cada plato muestran sus precios actualizados.
+          </aside>
+          <footer class="page-footer">Arepera La Grelhada · ¡Gracias por visitarnos!</footer>
+        </article>
+      `;
+
+      const menuSections = document.querySelectorAll(".menu-section");
+
+      categoryButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const selected = button.dataset.category;
+
+          categoryButtons.forEach((btn) => {
+            btn.classList.toggle("active", btn === button);
+            btn.setAttribute("aria-pressed", btn === button ? "true" : "false");
+          });
+
+          menuSections.forEach((section) => {
+            const isVisible = selected === "all" || section.dataset.section === selected;
+            section.classList.toggle("hidden", !isVisible);
+          });
+          menuContainer.querySelectorAll(".menu-page").forEach((page) => {
+            page.hidden = !page.querySelector(".menu-section:not(.hidden)");
+          });
+
+          menuContainer.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        });
+      });
+
+      menuContainer.querySelectorAll(".menu-item").forEach((button) => {
+        button.addEventListener("click", () => {
+          const name = button.dataset.label;
+          const price = button.dataset.price;
+          alert(`${name}\n\nPrecio: ${formatPrice(price)}\n\n¡Gracias por elegir Arepera La Grelhada!`);
+        });
+      });
+    }
+
+    function renderOwnerPrices() {
+      ownerPriceList.innerHTML = menuCategories.flatMap((category) =>
+        category.items.map((item) => {
+          const price = menuPrices.get(item.name) ?? Number(item.price);
+          return `
+            <label class="owner-price-row">
+              <span>${item.label || item.name}</span>
+              <input
+                class="owner-price-input"
+                name="${item.name}"
+                type="number"
+                min="0"
+                step="0.01"
+                value="${price}"
+                required
+                aria-label="Precio de ${item.label || item.name} en bolívares"
+              />
+            </label>
+          `;
+        })
+      ).join("");
+    }
+
+    function showOwnerPanel(email) {
+      ownerLoginView.hidden = true;
+      ownerPanelView.hidden = false;
+      document.getElementById("ownerWelcome").textContent = `Sesión iniciada: ${email}`;
+      renderOwnerPrices();
+      setBusinessStatusChoice(businessIsOpen);
+      showOwnerMessage("");
+    }
+
+    async function verifyOwner(user) {
+      const { data, error } = await supabaseClient
+        .from("menu_owners")
+        .select("user_id")
+        .eq("user_id", user.id)
+        .maybeSingle();
+
+      if (error) {
+        showOwnerMessage(`No se pudo verificar el acceso: ${error.message}`, true);
+        return;
+      }
+
+      if (!data) {
+        const { error: signOutError } = await supabaseClient.auth.signOut();
+        const signOutMessage = signOutError
+          ? ` No se pudo cerrar esa sesión: ${signOutError.message}`
+          : "";
+        showOwnerMessage(
+          `Esta cuenta no tiene permisos de dueño.${signOutMessage}`,
+          true
+        );
+        return;
+      }
+
+      showOwnerPanel(user.email);
+    }
+
+    async function loadPublicData() {
+      if (!supabaseConfigured) {
+        ownerSetupNote.hidden = false;
+        updatePublicStatus(null);
+        renderMenu();
+        return;
+      }
+
+      let pricesResult;
+      let statusResult;
+      try {
+        [pricesResult, statusResult] = await Promise.all([
+          supabaseClient.from("menu_prices").select("item_name, price"),
+          supabaseClient
+            .from("business_settings")
+            .select("is_open")
+            .eq("id", 1)
+            .maybeSingle()
+        ]);
+      } catch (error) {
+        console.error("No se pudo conectar con Supabase:", error);
+        updatePublicStatus(null, true);
+        renderMenu();
+        return;
+      }
+
+      if (pricesResult.error) {
+        console.error("No se pudieron cargar los precios:", pricesResult.error);
+        updatePublicStatus(null, true);
+      } else {
+        pricesResult.data.forEach((row) => {
+          menuPrices.set(row.item_name, Number(row.price));
+        });
+      }
+
+      if (statusResult.error) {
+        console.error("No se pudo cargar el estado del local:", statusResult.error);
+        updatePublicStatus(null, true);
+      } else {
+        updatePublicStatus(statusResult.data?.is_open ?? null);
+      }
+
+      renderMenu();
+    }
+
+    document.getElementById("openOwnerPanel").addEventListener("click", async () => {
+      showOwnerMessage("");
+      ownerLoginView.hidden = false;
+      ownerPanelView.hidden = true;
+      ownerSetupNote.hidden = supabaseConfigured;
+      ownerDialog.showModal();
+
+      if (!supabaseConfigured) {
+        showOwnerMessage("Completa la configuración de Supabase antes de iniciar sesión.", true);
+        return;
+      }
+
+      let data;
+      let error;
+      try {
+        ({ data, error } = await supabaseClient.auth.getSession());
+      } catch (requestError) {
+        showOwnerMessage(`No se pudo recuperar la sesión: ${requestError.message}`, true);
+        return;
+      }
+      if (error) {
+        showOwnerMessage(`No se pudo recuperar la sesión: ${error.message}`, true);
+      } else if (data.session) {
+        await verifyOwner(data.session.user);
+      }
+    });
+
+    document.getElementById("closeOwnerDialog").addEventListener("click", () => {
+      ownerDialog.close();
+    });
+
+    document.getElementById("ownerLoginForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!supabaseClient) {
+        showOwnerMessage("Supabase no está configurado.", true);
+        return;
+      }
+
+      const button = document.getElementById("ownerLoginButton");
+      button.disabled = true;
+      showOwnerMessage("Validando acceso...");
+      let data;
+      let error;
+      try {
+        ({ data, error } = await supabaseClient.auth.signInWithPassword({
+          email: document.getElementById("ownerEmail").value.trim(),
+          password: document.getElementById("ownerPassword").value
+        }));
+      } catch (requestError) {
+        button.disabled = false;
+        showOwnerMessage(`No se pudo iniciar sesión: ${requestError.message}`, true);
+        return;
+      }
+      button.disabled = false;
+
+      if (error) {
+        showOwnerMessage(`No se pudo iniciar sesión: ${error.message}`, true);
+        return;
+      }
+
+      await verifyOwner(data.user);
+    });
+
+    document.getElementById("ownerChangesForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const selectedStatus = document.querySelector('input[name="businessStatus"]:checked');
+      const status = selectedStatus ? selectedStatus.value : "";
+      if (status !== "true" && status !== "false") {
+        showOwnerMessage("Selecciona si el local está abierto o cerrado.", true);
+        return;
+      }
+
+      const inputs = [...ownerPriceList.querySelectorAll(".owner-price-input")];
+      const prices = inputs.map((input) => ({
+        item_name: input.name,
+        price: Number(input.value)
+      }));
+
+      if (prices.some(({ price }) => !Number.isFinite(price) || price < 0)) {
+        showOwnerMessage("Revisa los precios: deben ser números iguales o mayores que cero.", true);
+        return;
+      }
+
+      const button = document.getElementById("saveChangesButton");
+      button.disabled = true;
+      showOwnerMessage("Guardando cambios...");
+      const [priceResult, statusResult] = await Promise.allSettled([
+        supabaseClient
+          .from("menu_prices")
+          .upsert(prices, { onConflict: "item_name" }),
+        supabaseClient
+          .from("business_settings")
+          .update({ is_open: status === "true" })
+          .eq("id", 1)
+      ]);
+      button.disabled = false;
+
+      const priceError = priceResult.status === "rejected"
+        ? priceResult.reason
+        : priceResult.value.error;
+      const statusError = statusResult.status === "rejected"
+        ? statusResult.reason
+        : statusResult.value.error;
+
+      if (!priceError) {
+        prices.forEach(({ item_name, price }) => menuPrices.set(item_name, price));
+        document.querySelectorAll("[data-product-card]").forEach((card) => {
+          const price = menuPrices.get(card.dataset.productCard);
+          card.querySelector(".menu-item-price").textContent = formatMenuPrice(price);
+          card.dataset.price = String(price);
+        });
+        renderOwnerPrices();
+      }
+
+      if (!statusError) {
+        updatePublicStatus(status === "true");
+      }
+
+      if (priceError || statusError) {
+        const messages = [];
+        if (priceError) {
+          const detail = priceError instanceof Error ? priceError.message : String(priceError);
+          messages.push(`No se pudieron guardar los precios: ${detail}`);
+        } else {
+          messages.push("Precios guardados.");
+        }
+        if (statusError) {
+          const detail = statusError instanceof Error ? statusError.message : String(statusError);
+          messages.push(`No se pudo guardar el estado: ${detail}`);
+        } else {
+          messages.push("Estado guardado.");
+        }
+        showOwnerMessage(messages.join(" "), true);
+        return;
+      }
+
+      showOwnerMessage("Cambios guardados. Los clientes verán los precios y el estado al abrir o recargar el menú.");
+    });
+
+    document.getElementById("ownerLogoutButton").addEventListener("click", async () => {
+      const { error } = await supabaseClient.auth.signOut();
+      if (error) {
+        showOwnerMessage(`No se pudo cerrar sesión: ${error.message}`, true);
+        return;
+      }
+
+      ownerPanelView.hidden = true;
+      ownerLoginView.hidden = false;
+      document.getElementById("ownerLoginForm").reset();
+      showOwnerMessage("Sesión cerrada.");
+    });
+
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      backToTop.classList.toggle("visible", window.scrollY > 350);
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    loadPublicData();
+  </script>
+</body>
+</html>
