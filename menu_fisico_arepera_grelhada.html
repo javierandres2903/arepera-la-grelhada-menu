@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Menú para imprimir de Arepera La Grelhada." />
+  <title>Menú para imprimir | Arepera La Grelhada</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #352319;
+      --muted: #756456;
+      --orange: #b6531d;
+      --line: #e8d9c7;
+      --paper: #fffaf2;
+      --pale-orange: #fbefdf;
+      --deep-brown: #39251a;
+      --gold: #e7b66f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      background:
+        radial-gradient(ellipse at 12% 8%, #d17a3b2e, transparent 28%),
+        radial-gradient(ellipse at 90% 82%, #8f4e2626, transparent 30%),
+        #e9dfd3;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .print-button {
+      display: block;
+      margin: 0 auto 18px;
+      padding: 12px 20px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #d87b27, #a83e11);
+      color: #fff;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+      box-shadow: 0 5px 16px #6b331e38;
+    }
+
+    .print-help {
+      margin: -8px auto 18px;
+      color: #594534;
+      font-size: 13px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .page {
+      width: 8.5in;
+      min-height: 11in;
+      margin: 0 auto 24px;
+      padding: 0.42in;
+      border: 1px solid #e4d3bf;
+      border-top: 5px solid var(--orange);
+      background:
+        linear-gradient(145deg, #fffaf226, #fff8ed1A),
+        url("menu-desayunos-fondo.png") center / cover no-repeat;
+    }
+
+    .lunch-page {
+      background:
+        linear-gradient(145deg, #fffaf226, #fff8ed1A),
+        url("menu-almuerzos-fondo.jpe") center / 100% 100% no-repeat;
+      box-shadow: 0 12px 36px #46301e24;
+    }
+
+    .brand {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 16px 14px;
+      border: 1px solid #70452d;
+      border-radius: 16px;
+      background: linear-gradient(115deg, #382319, #55331f 66%, #74431f);
+      text-align: left;
+      box-shadow: inset 0 0 0 1px #e7b66f55, 0 5px 14px #39251a1c;
+    }
+
+    .brand img {
+      width: 74px;
+      height: 74px;
+      flex: 0 0 74px;
+      padding: 3px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      object-fit: cover;
+      background: #fffaf2;
+      box-shadow: 0 0 0 4px #e7b66f35, 0 5px 12px #150d082e;
+    }
+
+    .brand h1 {
+      margin: 0;
+      color: #fff7eb;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 31px;
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      text-shadow: 0 2px 6px #160c08a8;
+    }
+
+    .brand p {
+      margin: 6px 0 0;
+      color: #edc994;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .page-title {
+      width: max-content;
+      margin: 14px auto 18px;
+      padding: 7px 17px;
+      border: 1px solid #dfc7a9;
+      border-radius: 999px;
+      background: linear-gradient(110deg, #fff8ed, #f8ead8);
+      color: #8b4b26;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.7px;
+      text-align: center;
+      text-transform: uppercase;
+      box-shadow: inset 0 1px #fff;
+    }
+
+    .menu-section {
+      margin: 0 0 13px;
+      break-inside: avoid;
+    }
+
+    .photo-menu-section {
+      padding: 12px;
+      border: 1px solid #d5b896;
+      border-radius: 12px;
+      background: #fffaf255;
+      box-shadow: 0 4px 12px #50301820;
+    }
+
+    .page-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+      gap: 0.2in;
+      margin-bottom: 0;
+    }
+
+    .page-column {
+      min-width: 0;
+    }
+
+    .menu-section h2 {
+      margin: 0 0 10px;
+      padding: 8px 11px;
+      border: 1px solid #ecd8bf;
+      border-left: 4px solid var(--orange);
+      border-radius: 0 9px 9px 0;
+      background: #fffaf2EB;
+      color: #88451f;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.15;
+    }
+
+    .contour-groups {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr;
+      align-items: start;
+      gap: 12px;
+    }
+
+    .contour-group:last-child .contour-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contour-group {
+      padding: 10px;
+      border: 1px solid #ead8c3;
+      border-radius: 9px;
+      background: #fffaf299;
+    }
+
+    .contour-group h3 {
+      margin: 0 0 7px;
+      color: #8b4b26;
+      font-size: 9px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .empanada-group + .empanada-group {
+      margin-top: 10px;
+    }
+
+    .empanada-group .menu-item {
+      margin-bottom: 7px;
+    }
+
+    .lunch-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: start;
+      gap: 0.2in;
+    }
+
+    .lunch-grid .menu-section,
+    .lunch-contours {
+      padding: 12px;
+      border: 1px solid #d5b896;
+      border-radius: 12px;
+      background: #fffaf2B8;
+      box-shadow: 0 4px 12px #50301820;
+    }
+
+    .lunch-contours {
+      margin-top: 12px;
+    }
+
+    .lunch-contours .contour-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .section-note {
+      margin: 8px 0 7px;
+      color: #493627;
+      font-size: 9px;
+      font-style: normal;
+      line-height: 1.4;
+      text-shadow: 0 1px 2px #fffaf2;
+    }
+
+    .section-note strong {
+      display: inline-block;
+      padding: 3px 8px;
+      border: 1px solid #e9d5bd;
+      border-radius: 999px;
+      background: #fffaf2EB;
+      color: #8b4b26;
+      font-size: 8px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .menu-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 1.12in;
+      align-items: center;
+      gap: 7px;
+      min-height: 37px;
+      padding: 6px 9px;
+      border: 1px solid #e6d5c1;
+      border-radius: 8px;
+      background: #fffaf2ED;
+      box-shadow: 0 1px 3px #38231912;
+      break-inside: avoid;
+    }
+
+    .menu-item:nth-of-type(even) {
+      background: #fbf4e9ED;
+    }
+
+    .photo-menu-section--breakfast .menu-item {
+      position: relative;
+      min-height: 34px;
+      padding-left: 16px;
+      border-color: #e6d5c1;
+      border-radius: 6px;
+      background: #fffaf2E8;
+      box-shadow: 0 1px 3px #38231910;
+    }
+
+    .photo-menu-section--breakfast .menu-item:nth-of-type(even) {
+      background: #fffaf2E8;
+    }
+
+    .photo-menu-section--breakfast .menu-item::before {
+      position: absolute;
+      top: 50%;
+      left: 7px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #c16a31;
+      content: "";
+      transform: translateY(-50%);
+    }
+
+    .item-name {
+      color: #352319;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .price-entry {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 5px;
+      color: #594534;
+      font-size: 9px;
+      white-space: nowrap;
+    }
+
+    .write-in {
+      display: inline-block;
+      width: 0.82in;
+      height: 0.3in;
+      border: 1px solid #cdae88;
+      border-radius: 5px;
+      background: #ffffffF2;
+      box-shadow: inset 0 1px 3px #5534140c;
+    }
+
+    .contour-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px 8px;
+      margin: 7px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contour-grid li {
+      position: relative;
+      padding: 5px 7px 5px 16px;
+      border: 1px solid #e6d5c1;
+      border-radius: 6px;
+      background: #fffaf2E8;
+      box-shadow: 0 1px 3px #38231910;
+      color: #352319;
+      font-size: 10px;
+      line-height: 1.25;
+    }
+
+    .contour-grid li::before {
+      position: absolute;
+      top: 50%;
+      left: 7px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #c16a31;
+      content: "";
+      transform: translateY(-50%);
+    }
+
+    .note-box {
+      margin-top: 10px;
+      padding: 9px 11px;
+      border: 1px solid #e4c59f;
+      border-left: 4px solid var(--orange);
+      border-radius: 0 9px 9px 0;
+      background: linear-gradient(110deg, #fff0dc, #fff9ef);
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .page-footer {
+      margin-top: 16px;
+      padding-top: 9px;
+      border-top: 1px solid #e6d4bd;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    .page-footer::before,
+    .page-footer::after {
+      display: inline-block;
+      width: 18px;
+      height: 1px;
+      margin: 0 9px 3px;
+      background: #c68b5d;
+      content: "";
+    }
+
+    @media screen and (max-width: 760px) {
+      body {
+        padding: 12px;
+      }
+
+      .page {
+        width: 100%;
+        min-height: auto;
+        padding: 22px;
+      }
+
+      .page-columns,
+      .contour-groups,
+      .lunch-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lunch-contours .contour-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media print {
+      @page {
+        size: letter portrait;
+        margin: 0;
+      }
+
+      body {
+        padding: 0;
+        background: #fff;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .print-button {
+        display: none;
+      }
+
+      .print-help {
+        display: none;
+      }
+
+      .page {
+        width: 8.5in;
+        height: 11in;
+        min-height: 0;
+        margin: 0;
+        padding: 0.42in;
+        border: 0;
+        border-top: 5px solid var(--orange);
+        box-shadow: none;
+        overflow: hidden;
+        break-after: page;
+        page-break-after: always;
+      }
+
+      .page-title {
+        margin-bottom: 14px;
+      }
+
+      .menu-section {
+        margin-bottom: 10px;
+      }
+
+      .menu-item {
+        min-height: 35px;
+      }
+
+      .page-footer {
+        margin-top: 14px;
+      }
+
+      .page-columns {
+        gap: 0.16in;
+        margin-bottom: 0;
+      }
+
+      .contour-groups,
+      .lunch-grid {
+        gap: 0.16in;
+      }
+
+      .lunch-contours {
+        margin-top: 9px;
+      }
+
+      .page:first-of-type .page-footer {
+        margin-top: 0;
+      }
+
+      .page:last-of-type {
+        break-after: auto;
+        page-break-after: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="print-button" type="button" onclick="window.print()" aria-describedby="printHelp">
+    Imprimir menú · 2 páginas tamaño carta
+  </button>
+  <p class="print-help" id="printHelp">
+    Configurado en carta vertical. En la vista previa, imprime ambas páginas y activa «Gráficos de fondo» para conservar las fotos.
+  </p>
+
+  <main>
+    <article class="page">
+      <header class="brand">
+        <img src="logo-arepera.png" alt="Logo de Arepera La Grelhada" />
+        <div>
+          <h1>Arepera<br />La Grelhada</h1>
+          <p>Sabor venezolano hecho con cariño</p>
+        </div>
+      </header>
+      <p class="page-title">Nuestro menú · 1 de 2</p>
+
+      <div class="page-columns">
+        <div class="page-column">
+          <section class="menu-section photo-menu-section photo-menu-section--breakfast">
+            <h2>Arepas y desayunos</h2>
+            <div class="menu-item"><span class="item-name">Arepa de 2 contornos</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+            <div class="menu-item"><span class="item-name">Arepa de 3 contornos</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+            <div class="menu-item"><span class="item-name">Arepa con contornos especiales</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+            <div class="menu-item"><span class="item-name">Desayuno criollo</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+            <div class="menu-item"><span class="item-name">Bandeja grelhada</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+            <div class="menu-item"><span class="item-name">Arepa viuda</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+            <div class="menu-item"><span class="item-name">Envase de llevar</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+          </section>
+
+          <section class="menu-section photo-menu-section photo-menu-section--arepas">
+            <h2>Contornos para arepas</h2>
+            <div class="contour-groups">
+              <div class="contour-group">
+                <h3>Calientes</h3>
+                <ul class="contour-grid">
+                  <li>Mechada</li>
+                  <li>Pollo</li>
+                  <li>Molida</li>
+                  <li>Pernil</li>
+                  <li>Asado negro</li>
+                  <li>Lengua</li>
+                  <li>Pork belly</li>
+                  <li>Perico</li>
+                  <li>Caraota</li>
+                  <li>Salchicha guisada</li>
+                  <li>Chorizo</li>
+                  <li>Chuleta ahumada</li>
+                </ul>
+              </div>
+              <div class="contour-group">
+                <h3>Fríos</h3>
+                <ul class="contour-grid">
+                  <li>Queso guayanés</li>
+                  <li>Queso telita</li>
+                  <li>Queso crineja</li>
+                  <li>Queso blanco</li>
+                  <li>Queso amarillo</li>
+                  <li>Huevos de codorniz</li>
+                  <li>Salchicha con salsa rosada</li>
+                  <li>Jamón de pierna</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="page-column">
+          <section class="menu-section photo-menu-section photo-menu-section--empanadas">
+            <h2>Empanadas</h2>
+            <div class="empanada-group">
+              <div class="menu-item"><span class="item-name">Empanadas básicas</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+              <ul class="contour-grid">
+                <li>Pollo</li>
+                <li>Molida</li>
+                <li>Jamón con queso</li>
+                <li>Caraota con queso</li>
+                <li>Tajada con queso</li>
+                <li>Queso guayanés</li>
+                <li>Salchicha guisada</li>
+              </ul>
+            </div>
+
+            <div class="empanada-group">
+              <div class="menu-item"><span class="item-name">Empanadas especiales</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+              <p class="section-note">Contornos especiales:</p>
+              <ul class="contour-grid">
+                <li>Mechada</li>
+                <li>Pabellón</li>
+                <li>Mechada con amarillo</li>
+                <li>Mechada con guayanés</li>
+                <li>Cordon bleu</li>
+                <li>Chorizo con guayanés</li>
+                <li>Pork belly</li>
+                <li>Pernil</li>
+                <li>Asado negro</li>
+              </ul>
+            </div>
+
+            <div class="empanada-group">
+              <div class="menu-item"><span class="item-name">Empanadas de mariscos</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+              <ul class="contour-grid">
+                <li>Camarones</li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <footer class="page-footer">Arepera La Grelhada · Hecho para disfrutar</footer>
+    </article>
+
+    <article class="page lunch-page">
+      <header class="brand">
+        <img src="logo-arepera.png" alt="Logo de Arepera La Grelhada" />
+        <div>
+          <h1>Arepera<br />La Grelhada</h1>
+          <p>Sabor venezolano hecho con cariño</p>
+        </div>
+      </header>
+      <p class="page-title">Nuestro menú · 2 de 2</p>
+
+      <div class="lunch-grid">
+        <section class="menu-section">
+          <h2>Almuerzos</h2>
+          <p class="section-note"><strong>Incluyen 3 contornos a elección</strong></p>
+          <div class="menu-item"><span class="item-name">Milanesa de pollo</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+          <div class="menu-item"><span class="item-name">Chuleta ahumada</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+          <div class="menu-item"><span class="item-name">Mechada</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+          <div class="menu-item"><span class="item-name">Bistec de solomo</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+          <div class="menu-item"><span class="item-name">Pernil</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+          <div class="menu-item"><span class="item-name">Asado negro</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+        </section>
+
+        <section class="menu-section">
+          <h2>Especiales</h2>
+          <div class="menu-item"><span class="item-name">Sopa de costilla</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+          <div class="menu-item"><span class="item-name">Carne en vara · 100 gramos</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+          <div class="menu-item"><span class="item-name">Pork belly · 100 gramos</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+          <div class="menu-item"><span class="item-name">Pollo asado</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+          <p class="section-note">El pollo asado viene acompañado con yuca o arepita frita, y ensalada mixta o rallada.</p>
+        </section>
+      </div>
+
+      <section class="menu-section lunch-contours">
+        <h2>Contornos</h2>
+        <ul class="contour-grid">
+          <li>Arroz</li>
+          <li>Ensalada mixta</li>
+          <li>Ensalada rallada</li>
+          <li>Caraotas</li>
+          <li>Tajadas</li>
+          <li>Arepitas fritas</li>
+        </ul>
+      </section>
+
+      <aside class="note-box">
+        Los recuadros junto a cada plato son para escribir los precios. Para actualizarlos, imprime y plastifica el menú; usa un marcador borrable para pizarra blanca.
+      </aside>
+
+      <footer class="page-footer">Arepera La Grelhada · ¡Gracias por visitarnos!</footer>
+    </article>
+  </main>
+</body>
+</html>
