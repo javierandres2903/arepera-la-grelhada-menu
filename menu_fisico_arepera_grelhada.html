@@ -228,6 +228,21 @@
       margin-top: 12px;
     }
 
+    .beverages-section {
+      margin-top: 12px;
+      padding: 12px;
+      border: 1px solid #d5b896;
+      border-radius: 12px;
+      background: #fffaf2B8;
+      box-shadow: 0 4px 12px #50301820;
+    }
+
+    .beverage-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px 10px;
+    }
+
     .lunch-contours .contour-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
@@ -477,6 +492,31 @@
         margin-top: 9px;
       }
 
+      .beverages-section {
+        margin-top: 9px;
+        padding: 10px;
+      }
+
+      .beverage-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 5px 8px;
+      }
+
+      .beverage-grid .menu-item {
+        grid-template-columns: minmax(0, 1fr) 0.9in;
+        min-height: 32px;
+        padding: 3px 7px;
+      }
+
+      .beverage-grid .item-name {
+        font-size: 10px;
+      }
+
+      .beverage-grid .write-in {
+        width: 0.62in;
+        height: 0.27in;
+      }
+
       .page:first-of-type .page-footer {
         margin-top: 0;
       }
@@ -634,6 +674,21 @@
         </section>
       </div>
 
+      <section class="menu-section beverages-section">
+        <h2>Bebidas</h2>
+        <div class="beverage-grid">
+          <div class="menu-item"><span class="item-name">Malta desechable · 250 ml</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+          <div class="menu-item"><span class="item-name">Malta · 1.5 lt</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+          <div class="menu-item"><span class="item-name">Jugo Justy · 400 ml</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+          <div class="menu-item"><span class="item-name">Coca-Cola · 355 ml</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+          <div class="menu-item"><span class="item-name">Coca-Cola · 1 lt</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+          <div class="menu-item"><span class="item-name">Coca-Cola · 1.5 lt</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+          <div class="menu-item"><span class="item-name">Refresco · 2 lt</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+          <div class="menu-item"><span class="item-name">Cerveza de lata</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+          <div class="menu-item"><span class="item-name">Jugos naturales</span><span class="price-entry">Bs. <span class="write-in"></span></span></div>
+        </div>
+      </section>
+
       <section class="menu-section lunch-contours">
         <h2>Contornos</h2>
         <ul class="contour-grid">
@@ -647,7 +702,7 @@
       </section>
 
       <aside class="note-box">
-        Los recuadros junto a cada plato son para escribir los precios. Para actualizarlos, imprime y plastifica el menú; usa un marcador borrable para pizarra blanca.
+        Los recuadros junto a cada producto son para escribir los precios. Para actualizarlos, imprime y plastifica el menú; usa un marcador borrable para pizarra blanca.
       </aside>
 
       <footer class="page-footer">Arepera La Grelhada · ¡Gracias por visitarnos!</footer>
