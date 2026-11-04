@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
   <meta name="theme-color" content="#21150e" />
   <title>Arepera La Grelhada | Menú Digital</title>
   <meta name="description" content="Menú digital de Arepera La Grelhada: arepas, empanadas, almuerzos y platos especiales." />
@@ -29,11 +29,11 @@
     scroll-padding-top: 100px;
   }
   body {
-    min-height: 100vh;
-    overflow-x: hidden;
-    background: #e9dfd3;
     color: #352319;
     font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    background: #e9dfd3;
+    overflow-x: hidden;
   }
   button {
     font: inherit;
@@ -58,7 +58,7 @@
     gap: 8px;
     padding: 10px 16px;
     border-bottom: 1px solid var(--border);
-    background: #19100af5;
+    background: #39251a;
   }
   .top-contact > a,
   .top-social-link {
@@ -68,18 +68,20 @@
     gap: 7px;
     min-height: 36px;
     padding: 8px 12px;
-    border: 1px solid var(--border);
+    border: 1px solid #ffffff20;
     border-radius: 999px;
-    background: rgba(0, 0, 0, 0.58);
+    background: #21150ee8;
     color: var(--text);
     font-size: 12px;
     font-weight: 600;
-    transition: 0.2s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
   }
   .top-contact > a:hover,
   .top-social-link:hover {
-    border-color: var(--orange);
-    color: var(--amber);
+    transform: translateY(-1px);
+    border-color: #e7b66f;
+    background: #51341f;
+    color: #fff7eb;
   }
   .top-social-links {
     display: flex;
@@ -124,15 +126,16 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-top: 16px;
-    padding: 9px 14px;
-    border: 1px solid var(--border);
+    flex-shrink: 0;
+    margin: 0;
+    padding: 7px 11px;
+    border: 1px solid #e7b66f50;
     border-radius: 999px;
-    background: rgba(0, 0, 0, 0.45);
-    color: var(--muted);
-    font-size: 12px;
+    background: #120c08a8;
+    color: #f0d7b4;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.7px;
     text-transform: uppercase;
   }
   .business-status::before {
@@ -158,14 +161,15 @@
   }
   .category-navigation {
     position: relative;
-    background: #19100af5;
+    background: #24170ff5;
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
+    box-shadow: 0 3px 12px #160c0866;
   }
   .category-list {
     display: flex;
-    gap: 10px;
-    padding: 14px 0;
+    gap: 7px;
+    padding: 0;
     overflow-x: auto;
     scrollbar-width: none;
   }
@@ -174,23 +178,26 @@
   }
   .category-btn {
     flex-shrink: 0;
-    padding: 11px 18px;
-    color: var(--muted);
+    padding: 9px 14px;
+    color: #ead9c5;
     background: #ffffff0b;
-    border: 1px solid #ffffff12;
-    border-radius: 50px;
-    font-size: 12px;
+    border: 1px solid #e7b66f38;
+    border-radius: 999px;
+    font-size: 11px;
     font-weight: 700;
-    transition: 0.2s ease;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
   }
   .category-btn:hover {
-    color: white;
-    border-color: var(--orange);
+    border-color: #e7b66f;
+    color: #fffaf2;
+    transform: translateY(-1px);
   }
   .category-btn.active {
-    background: var(--orange);
-    color: #21150e;
-    border-color: var(--orange);
+    border-color: #b6531d;
+    background: linear-gradient(135deg, #c8662a, #a8481b);
+    color: #fffaf2;
+    box-shadow: 0 3px 10px #7f351d55;
   }
   .footer {
     padding: 45px 20px 30px;
@@ -460,70 +467,12 @@
       justify-content: center;
     }
   }
-  .top-contact {
-    background: #39251a;
-  }
-  .top-contact > a,
-  .top-social-link {
-    border-color: #ffffff20;
-    background: #21150ee8;
-    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-  }
-  .top-contact > a:hover,
-  .top-social-link:hover {
-    transform: translateY(-1px);
-    border-color: #e7b66f;
-    background: #51341f;
-    color: #fff7eb;
-  }
-  .category-navigation {
-    position: relative;
-    background: #24170ff5;
-    box-shadow: 0 3px 12px #160c0866;
-  }
   .category-navigation .container {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 16px;
     padding: 10px 0;
-  }
-  .business-status {
-    flex-shrink: 0;
-    margin: 0;
-    padding: 7px 11px;
-    border: 1px solid #e7b66f50;
-    border-radius: 999px;
-    background: #120c08a8;
-    color: #f0d7b4;
-    font-size: 11px;
-    letter-spacing: 0.7px;
-  }
-  .category-list {
-    gap: 7px;
-    padding: 0;
-  }
-  .category-btn {
-    padding: 9px 14px;
-    border: 1px solid #e7b66f38;
-    border-radius: 999px;
-    background: #ffffff0a;
-    color: #ead9c5;
-    font-size: 11px;
-    font-weight: 700;
-    white-space: nowrap;
-    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
-  }
-  .category-btn.active {
-    border-color: #b6531d;
-    background: linear-gradient(135deg, #c8662a, #a8481b);
-    color: #fffaf2;
-    box-shadow: 0 3px 10px #7f351d55;
-  }
-  .category-btn:hover {
-    border-color: #e7b66f;
-    color: #fffaf2;
-    transform: translateY(-1px);
   }
   .digital-menu {
     width: min(100% - 40px, 1080px);
@@ -797,6 +746,13 @@
     text-align: center;
   }
   @media (max-width: 760px) {
+    html,
+    body {
+      overscroll-behavior-x: none;
+    }
+    body {
+      touch-action: pan-y;
+    }
     .category-navigation .container {
       display: grid;
       grid-template-columns: minmax(0, 1fr);
@@ -931,6 +887,9 @@
         <button class="category-btn" data-category="especiales" aria-pressed="false">
           🔥 Especiales
         </button>
+        <button class="category-btn" data-category="bebidas" aria-pressed="false">
+          🥤 Bebidas
+        </button>
       </div>
     </div>
   </nav>
@@ -1050,75 +1009,184 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     const menuCategories = [
+  {
+    id: "arepas",
+    title: "Arepas y desayunos",
+    description: "Tradición venezolana hecha al momento.",
+    icon: "🫓",
+    items: [
       {
-        id: "arepas",
-        title: "Arepas y desayunos",
-        items: [
-          { name: "2 contorno", label: "Arepa de 2 contornos", price: 0 },
-          { name: "3 contorno", label: "Arepa de 3 contornos", price: 0 },
-          { name: "Contornos especiales", label: "Arepa con contornos especiales", price: 0 },
-          { name: "Desayuno criollo", price: 0 },
-          { name: "Bandeja grelhada", price: 0 },
-          { name: "Arepa viuda", price: 0 },
-          { name: "Envase de llevar", price: 0 }
-        ]
+        name: "2 contorno",
+        price: "0",
+        label: "Arepa de 2 contornos"
       },
       {
-        id: "empanadas",
-        title: "Empanadas",
-        items: [
-          {
-            name: "Empanadas básicas",
-            price: 0,
-            options: [
-              "Pollo", "Molida", "Jamón con queso", "Caraota con queso",
-              "Tajada con queso", "Queso guayanés", "Salchicha guisada"
-            ]
-          },
-          {
-            name: "Empanadas especiales",
-            price: 0,
-            options: [
-              "Mechada", "Pabellón", "Mechada con amarillo",
-              "Mechada con guayanés", "Cordon bleu", "Chorizo con guayanés",
-              "Pork belly", "Pernil", "Asado negro"
-            ]
-          },
-          { name: "Empanadas de mariscos", price: 0, options: ["Camarones"] }
-        ]
+        name: "3 contorno",
+        price: "0",
+        label: "Arepa de 3 contornos"
       },
       {
-        id: "almuerzos",
-        title: "Almuerzos",
-        items: [
-          { name: "Milanesa de pollo a la plancha", label: "Milanesa de pollo", price: 0 },
-          { name: "Chuleta ahumada", price: 0 },
-          { name: "Mechada", price: 0 },
-          { name: "Bistec de solomo", price: 0 },
-          { name: "Pernil", price: 0 },
-          { name: "Asado negro", price: 0 }
-        ]
+        name: "Contornos especiales",
+        price: "0",
+        label: "Arepa con contornos especiales"
       },
       {
-        id: "contornos",
-        title: "Contornos",
-        items: [],
+        name: "Desayuno criollo",
+        price: "0",
+        label: "Desayuno criollo"
+      },
+      {
+        name: "Bandeja grelhada",
+        price: "0",
+        label: "Bandeja grelhada"
+      },
+      {
+        name: "Arepa viuda",
+        price: "0",
+        label: "Arepa viuda"
+      },
+      {
+        name: "Envase de llevar",
+        price: "0",
+        label: "Envase de llevar"
+      }
+    ]
+  },
+  {
+    id: "empanadas",
+    title: "Empanadas",
+    description: "Crujientes, sabrosas y listas para disfrutar.",
+    icon: "🥟",
+    items: [
+      {
+        name: "Empanadas básicas",
+        price: "0",
         options: [
-          "Arroz", "Ensalada mixta", "Ensalada rallada",
-          "Caraotas", "Tajadas", "Arepitas fritas"
+          "Pollo",
+          "Molida",
+          "Jamón con queso",
+          "Caraota con queso",
+          "Tajada con queso",
+          "Queso guayanés",
+          "Salchicha guisada"
         ]
       },
       {
-        id: "especiales",
-        title: "Especiales",
-        items: [
-          { name: "Sopa de costilla", price: 0 },
-          { name: "Carne en vara", label: "Carne en vara · 100 gramos", price: 0 },
-          { name: "Pork belly", label: "Pork belly · 100 gramos", price: 0 },
-          { name: "Pollo asado", price: 0 }
+        name: "Empanadas especiales",
+        price: "0",
+        options: [
+          "Mechada",
+          "Pabell?n",
+          "Mechada con amarillo",
+          "Mechada con guayan?s",
+          "Cordon bleu",
+          "Chorizo con guayan?s",
+          "Pork belly",
+          "Pernil",
+          "Asado negro"
+        ]
+      },
+      {
+        name: "Empanadas de mariscos",
+        price: "0",
+        options: [
+          "Camarones"
         ]
       }
-    ];
+    ]
+  },
+  {
+    id: "almuerzos",
+    title: "Almuerzos",
+    description: "Acompañados con 3 contornos a su elección.",
+    icon: "🍽️",
+    items: [
+      {
+        name: "Milanesa de pollo a la plancha",
+        price: "0",
+        label: "Milanesa de pollo"
+      },
+      {
+        name: "Chuleta ahumada",
+        price: "0"
+      },
+      {
+        name: "Mechada",
+        price: "0"
+      },
+      {
+        name: "Bistec de solomo",
+        price: "0"
+      },
+      {
+        name: "Pernil",
+        price: "0"
+      },
+      {
+        name: "Asado negro",
+        price: "0"
+      }
+    ]
+  },
+  {
+    id: "contornos",
+    title: "Contornos",
+    description: "Opciones para acompañar todos tus platos.",
+    icon: "🥗",
+    items: [],
+    options: [
+      "Arroz",
+      "Ensalada mixta",
+      "Ensalada rallada",
+      "Caraotas",
+      "Tajadas",
+      "Arepitas fritas"
+    ]
+  },
+  {
+    id: "especiales",
+    title: "Especiales",
+    description: "Platos y acompañamientos que marcan la diferencia.",
+    icon: "🔥",
+    items: [
+      {
+        name: "Sopa de costilla",
+        price: "0"
+      },
+      {
+        name: "Carne en vara",
+        price: "0",
+        label: "Carne en vara ? 100 gramos"
+      },
+      {
+        name: "Pork belly",
+        price: "0",
+        label: "Pork belly ? 100 gramos"
+      },
+      {
+        name: "Pollo asado",
+        price: "0"
+      }
+    ]
+  },
+  {
+    id: "bebidas",
+    title: "Bebidas",
+    description: "Bebidas para acompañar tu comida.",
+    icon: "🥤",
+    items: [
+      { name: "Malta desechable 250 ml", price: "0" },
+      { name: "Malta 1.5 lt", price: "0" },
+      { name: "Jugo Justy 400 ml", price: "0" },
+      { name: "Coca-Cola 355 ml", price: "0" },
+      { name: "Coca-Cola 1 lt", price: "0" },
+      { name: "Coca-Cola 1.5 lt", price: "0" },
+      { name: "Refresco 2 lt", price: "0" },
+      { name: "Cerveza de lata", price: "0" },
+      { name: "Jugos naturales", price: "0" }
+    ]
+  }
+];
 
     const arepaFillings = {
       calientes: [
@@ -1219,6 +1287,7 @@
             class="menu-item"
             type="button"
             data-product-card="${item.name}"
+            data-product="${item.name}"
             data-label="${label}"
             data-price="${price}"
             aria-label="${label}, ${formatPrice(price)}. Ver detalle"
@@ -1245,15 +1314,15 @@
       `;
 
       menuContainer.innerHTML = `
-        <article class="menu-page">
+        <article class="menu-page breakfast-page">
           ${brandHeader(1)}
           <div class="page-columns">
             <div class="page-column">
-              <section class="menu-section" data-section="arepas">
+              <section class="menu-section photo-menu-section" data-section="arepas">
                 <h2>${categories.get("arepas").title}</h2>
                 ${categories.get("arepas").items.map(menuItem).join("")}
               </section>
-              <section class="menu-section" data-section="arepas">
+              <section class="menu-section photo-menu-section" data-section="arepas">
                 <h2>Contornos para arepas</h2>
                 <div class="contour-groups">
                   <div class="contour-group">
@@ -1268,12 +1337,12 @@
               </section>
             </div>
             <div class="page-column">
-              <section class="menu-section" data-section="empanadas">
+              <section class="menu-section photo-menu-section" data-section="empanadas">
                 <h2>${categories.get("empanadas").title}</h2>
                 ${categories.get("empanadas").items.map((item) => `
                   <div class="empanada-group">
                     ${menuItem(item)}
-                    ${contourList(item.options)}
+                    ${item.options?.length ? contourList(item.options) : ""}
                   </div>
                 `).join("")}
               </section>
@@ -1295,6 +1364,10 @@
               <p class="section-note">El pollo asado viene acompañado con yuca o arepita frita, y ensalada mixta o rallada.</p>
             </section>
           </div>
+          <section class="menu-section lunch-panel" data-section="bebidas">
+            <h2>${categories.get("bebidas").title}</h2>
+            ${categories.get("bebidas").items.map(menuItem).join("")}
+          </section>
           <section class="menu-section lunch-contours" data-section="contornos">
             <h2>${categories.get("contornos").title}</h2>
             ${contourList(categories.get("contornos").options)}
